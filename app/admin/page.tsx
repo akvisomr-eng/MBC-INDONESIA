@@ -24,7 +24,7 @@ export default async function AdminPage() {
       <aside className="admin-sidebar">
         <Link className="brand" href="/"><span className="brand-mark">M</span><span>MBC <b>INDONESIA</b></span></Link>
         <nav className="admin-nav" aria-label="Navigasi dashboard">
-          <a href="#overview">Ringkasan</a><a href="#modules">Modul sistem</a><Link href="/api/health">Kesehatan sistem</Link><Link href="/">Portal publik</Link>
+          <a href="#overview">Ringkasan</a><a href="#modules">Modul sistem</a><Link href="/admin/articles">CMS · Naskah</Link><Link href="/api/health">Kesehatan sistem</Link><Link href="/">Portal publik</Link>
         </nav>
       </aside>
       <section className="admin-main" id="overview">
