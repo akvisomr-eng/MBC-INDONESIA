@@ -62,7 +62,7 @@ export default async function HomePage() {
               <article className={index === 0 ? "article-card article-featured" : "article-card"} key={article.id}>
                 {article.featured_image_url ? <div className="article-image"><img src={article.featured_image_url} alt="" loading="lazy"/></div> : <div className="article-image image-placeholder"><span>MBC<span className="red-dot">.</span></span></div>}
                 <div className="article-meta"><span>{article.category || "Berita"}</span><span>{formatDate(article.published_at)}</span></div>
-                <h3>{article.title}</h3>
+                <h3><Link href={`/berita/${article.slug}`}>{article.title}</Link></h3>
                 {article.dek && <p>{article.dek}</p>}
                 <span className="article-byline">{article.author_name ? `Oleh ${article.author_name}` : "Redaksi MBC Indonesia"}</span>
               </article>
