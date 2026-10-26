@@ -31,3 +31,5 @@ jobs:
         env:
           NEXT_TELEMETRY_DISABLED: 1
           NEXT_PUBLIC_SITE_URL: https://example.invalid
+          NEON_AUTH_BASE_URL: https://example.invalid/neondb/auth
+          NEON_AUTH_COOKIE_SECRET: ci-only-placeholder-secret-not-for-deployment
