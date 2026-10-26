@@ -132,3 +132,16 @@ Suggested logical services:
 ## Release limitations
 
 This is an implementation branch, not a declaration of production readiness. Do not connect it to production data or switch the public domain until CI is green and preview verification is complete. Editor/reporter role granularity, article editing and rejection UI, media upload workflow, CRM/finance/payroll workflows, external analytics/Search Console integration, custom production SMTP, provider-specific integration tests, rate limiting, and incident/rollback drills remain release work. Preview deployments are configured to avoid indexing.
+
+
+## Import artikel lama dari WordPress (staging only)
+
+The importer reads public posts from the MBC Indonesia WordPress REST API and creates **drafts only** in the configured Neon database. It does not publish, overwrite existing slugs, or copy the source publication date into the new publication field.
+
+1. Set DATABASE_URL to the isolated Neon staging branch and set MBC_SOURCE_WORDPRESS_URL.
+2. Run `npm run import:wordpress -- --limit=100` for a dry run.
+3. Inspect the titles and source links.
+4. Only if the target is staging, run `MBC_IMPORT_CONFIRM_TARGET=staging npm run import:wordpress -- --apply --limit=100`.
+5. Review every imported draft, confirm attribution and source, then approve/publish using the editorial workflow.
+
+The explicit staging confirmation and `--apply` flag are both required before the script writes data. Never point this importer at the production branch without a separately approved migration plan.
