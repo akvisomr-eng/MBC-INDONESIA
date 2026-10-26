@@ -16,17 +16,22 @@ type Article = {
 async function getArticle(slug: string): Promise<Article | null> {
   const pool = getPool();
   if (pool) {
-    const result = await pool.query<Article>(
-      `SELECT a.title, a.slug, a.dek, a.body_markdown, a.author_name,
-              c.name AS category, a.published_at, a.seo_title, a.seo_description, a.canonical_url
-         FROM public.newsroom_articles a
-         LEFT JOIN public.newsroom_categories c ON c.id = a.category_id
-        WHERE a.slug = $1 AND a.status = 'published'
-          AND (a.published_at IS NULL OR a.published_at <= NOW())
-        LIMIT 1`,
-      [slug]
-    );
-    if (result.rows[0]) return result.rows[0];
+    try {
+      const result = await pool.query<Article>(
+        `SELECT a.title, a.slug, a.dek, a.body_markdown, a.author_name,
+                c.name AS category, a.published_at, a.seo_title, a.seo_description, a.canonical_url
+           FROM public.newsroom_articles a
+           LEFT JOIN public.newsroom_categories c ON c.id = a.category_id
+          WHERE a.slug = $1 AND a.status = 'published'
+            AND (a.published_at IS NULL OR a.published_at <= NOW())
+          LIMIT 1`,
+        [slug]
+      );
+      if (result.rows[0]) return result.rows[0];
+    } catch {
+      // The source-backed article fallback below keeps these known stories readable
+      // if the preview database is temporarily unavailable or has not been seeded.
+    }
   }
 
   const source = getSourceArticle(slug);
