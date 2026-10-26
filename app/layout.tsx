@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: "MBC Indonesia — Berita dan Perspektif", template: "%s | MBC Indonesia" },
   description: "Portal berita MBC Indonesia. Informasi, laporan, dan perspektif yang terverifikasi.",
-  robots: { index: true, follow: true }
+  robots: process.env.VERCEL_ENV === "production" ? { index: true, follow: true } : { index: false, follow: false }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
