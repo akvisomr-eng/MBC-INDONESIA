@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [main]
 concurrency:
-  group: mbc-ci-${{ github.ref }}
+  group: mbc-ci-${{ github.event.pull_request.head.ref || github.ref }}
   cancel-in-progress: true
 jobs:
   build:
