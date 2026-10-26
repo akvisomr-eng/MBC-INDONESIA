@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getSql } from "@/lib/db";
 
@@ -67,7 +68,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <h1>{article.title}</h1>
         {article.dek ? <p className="article-dek">{article.dek}</p> : null}
         <div className="article-meta">{article.author_name ? <span>Oleh {article.author_name}</span> : <span>Redaksi MBC Indonesia</span>}{article.published_at ? <time dateTime={article.published_at}>{new Intl.DateTimeFormat("id-ID", { dateStyle: "long", timeZone: "Asia/Jakarta" }).format(new Date(article.published_at))}</time> : null}</div>
-        {article.featured_image_url ? <img className="article-image" src={article.featured_image_url} alt={article.title} /> : null}
+        {article.featured_image_url ? <Image className="article-image" src={article.featured_image_url} alt={article.title} width={1600} height={900} unoptimized /> : null}
         <div className="article-body">{paragraphs.map((p, i) => <p key={i}>{p.replace(/^#+\s*/, "")}</p>)}</div>
       </article>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
