@@ -12,9 +12,9 @@ function formatDate(value: string | null) {
 
 const navigationTiles = [
   { href: "#berita-terbaru", number: "01", title: "Berita", subtitle: "Laporan terbaru", className: "tile-blue" },
-  { href: "#nasional", number: "02", title: "Nasional", subtitle: "Dari seluruh Indonesia", className: "tile-cyan" },
-  { href: "#daerah", number: "03", title: "Daerah", subtitle: "Cerita dari wilayah", className: "tile-orange" },
-  { href: "#ekonomi", number: "04", title: "Ekonomi", subtitle: "Bisnis dan kebijakan", className: "tile-violet" },
+  { href: "#berita-terbaru", number: "02", title: "Nasional", subtitle: "Dari seluruh Indonesia", className: "tile-cyan" },
+  { href: "#berita-terbaru", number: "03", title: "Daerah", subtitle: "Cerita dari wilayah", className: "tile-orange" },
+  { href: "#berita-terbaru", number: "04", title: "Ekonomi", subtitle: "Bisnis dan kebijakan", className: "tile-violet" },
   { href: "#teknologi", number: "05", title: "Teknologi", subtitle: "Digital dan Web3", className: "tile-navy" },
   { href: "#companion", number: "06", title: "AI Companion", subtitle: "Baca dan pahami berita", className: "tile-red" }
 ];
@@ -61,7 +61,7 @@ export default async function HomePage() {
       </header>
       <nav className="main-nav" aria-label="Navigasi utama">
         <Link href="/">Beranda</Link>
-        <a href="#nasional">Nasional</a><a href="#ekonomi">Ekonomi</a><a href="#daerah">Daerah</a><a href="#teknologi">Teknologi & Web3</a><a href="#opini">Opini</a>
+        <a href="#berita-terbaru">Nasional</a><a href="#berita-terbaru">Ekonomi</a><a href="#berita-terbaru">Daerah</a><a href="#teknologi">Teknologi & Web3</a><a href="#opini">Opini</a>
         <a className="nav-companion" href="#companion">✳ AI Companion</a>
       </nav>
 
