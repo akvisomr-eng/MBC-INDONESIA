@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { auditSeo } from "../lib/seo.ts";
+import { auditSeo } from "../lib/seo.mjs";
 
 test("SEO audit flags missing title and malformed slug", () => {
   const findings = auditSeo({ title: "", slug: "Judul Berita!" });
@@ -8,7 +8,7 @@ test("SEO audit flags missing title and malformed slug", () => {
   assert.ok(findings.some((item) => item.key === "slug-format" && item.level === "error"));
 });
 
-test("SEO audit avoids keyword-stuffing prescriptions and flags missing description", () => {
+test("SEO audit flags missing description without prescribing keyword stuffing", () => {
   const findings = auditSeo({ title: "Laporan MBC Indonesia", slug: "laporan-mbc-indonesia" });
   assert.ok(findings.some((item) => item.key === "description-missing"));
 });
