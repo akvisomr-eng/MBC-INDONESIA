@@ -19,24 +19,28 @@ export default async function HomePage() {
     loadFailed = true;
   }
 
-  // Keep the three verified source stories available as local article pages until
-  // the newsroom publishes database-backed records for them.
-  const showingSourceArticles = articles.length === 0;
-  const displayArticles: Array<PublicArticle & { location?: string; sourceUrl?: string }> =
-    showingSourceArticles
-      ? sourceArticles.map((article) => ({
-          id: article.slug,
-          title: article.title,
-          slug: article.slug,
-          dek: article.dek,
-          category: article.category,
-          author_name: article.author,
-          featured_image_url: article.imageUrl,
-          published_at: article.publishedAt,
-          location: article.location,
-          sourceUrl: article.sourceUrl
-        }))
-      : articles;
+  // Always include the three source stories on the homepage, even when the
+  // database already contains other published stories. Database records win on
+  // duplicate slugs; source-only stories remain available at their local routes.
+  const sourceCards: Array<PublicArticle & { location?: string; sourceUrl?: string }> =
+    sourceArticles.map((article) => ({
+      id: article.slug,
+      title: article.title,
+      slug: article.slug,
+      dek: article.dek,
+      category: article.category,
+      author_name: article.author,
+      featured_image_url: article.imageUrl,
+      published_at: article.publishedAt,
+      location: article.location,
+      sourceUrl: article.sourceUrl
+    }));
+  const databaseSlugs = new Set(articles.map((article) => article.slug));
+  const displayArticles: Array<PublicArticle & { location?: string; sourceUrl?: string }> = [
+    ...articles,
+    ...sourceCards.filter((article) => !databaseSlugs.has(article.slug))
+  ];
+  const showingSourceArticles = sourceCards.length > 0;
 
   return (
     <main id="konten">
