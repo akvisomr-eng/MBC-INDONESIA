@@ -1,13 +1,12 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { authClient } from "@/lib/auth/client";
 
 export default function SignInPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [mode, setMode] = useState<"sign-in" | "sign-up">("sign-in");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -27,7 +26,8 @@ export default function SignInPage() {
         setError(result.error.message || "Autentikasi gagal. Periksa data lalu coba lagi.");
         return;
       }
-      router.replace(searchParams.get("next")?.startsWith("/") ? searchParams.get("next")! : "/admin");
+      const nextPath = new URLSearchParams(window.location.search).get("next");
+      router.replace(nextPath?.startsWith("/") ? nextPath : "/admin");
       router.refresh();
     } catch {
       setError("Layanan autentikasi belum tersedia. Periksa konfigurasi Neon Auth pada environment ini.");
