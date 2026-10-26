@@ -41,7 +41,7 @@ async function getArticle(slug: string): Promise<Article | null> {
     published_at: source.publishedAt,
     seo_title: source.title,
     seo_description: source.dek,
-    canonical_url: undefined as unknown as null,
+    canonical_url: null,
     location: source.location,
     source_url: source.sourceUrl
   };
