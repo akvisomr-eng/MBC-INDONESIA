@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getLatestArticles } from "@/lib/db";
+import { getLatestArticles, type PublicArticle } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
@@ -9,7 +9,7 @@ function formatDate(value: string | null) {
 }
 
 export default async function HomePage() {
-  let articles = [];
+  let articles: PublicArticle[] = [];
   let databaseAvailable = Boolean(process.env.DATABASE_URL);
   let loadFailed = false;
   try {
