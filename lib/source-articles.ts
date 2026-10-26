@@ -20,7 +20,7 @@ export const sourceArticles: SourceArticle[] = [
     publishedAt: "2026-10-25T00:00:00+07:00",
     location: "Kediri",
     author: "Ags",
-    imageUrl: null,
+    imageUrl: "https://www.mbcindonesia.id/wp-content/uploads/2026/10/IMG-20261025-WA0022.jpg",
     sourceUrl: "https://www.mbcindonesia.id/2026/10/25/pererat-silaturahmi-ormas-gbran-turut-hadiri-pelantikan-pac-progib-dpc-kediri/",
     body: [
       "Kediri — DPC PROGIB Kabupaten Kediri mencatat langkah penting. Pada Minggu (25/10/2026), organisasi ini secara resmi mendeklarasikan sekaligus melantik jajaran Pengurus Anak Cabang (PAC) di seluruh wilayah Kabupaten Kediri.",
@@ -46,7 +46,7 @@ export const sourceArticles: SourceArticle[] = [
     publishedAt: "2026-10-25T00:00:00+07:00",
     location: "Kediri",
     author: "Ags",
-    imageUrl: null,
+    imageUrl: "https://www.mbcindonesia.id/wp-content/uploads/2026/10/IMG-20261025-WA0021.jpg",
     sourceUrl: "https://www.mbcindonesia.id/2026/10/25/progib-jatim-dpc-kediri-resmi-lantik-pac-se-kabupaten-semangat-perkuat-keterlibatan-hingga-ke-akar-rumput/",
     body: [
       "Kediri — DPC PROGIB Kabupaten Kediri secara resmi mendeklarasikan sekaligus melantik jajaran Pengurus Anak Cabang (PAC) di seluruh wilayah Kabupaten Kediri, Jawa Timur. Acara berlangsung pada Minggu (25/10/2026), dihadiri langsung oleh Ketua Umum DPP PROGIB, Dimpos Simamora, S.E., S.H., didampingi Ketua DPW PROGIB Jawa Timur, Soemardi Priono, beserta jajaran pengurus.",
@@ -66,7 +66,7 @@ export const sourceArticles: SourceArticle[] = [
     publishedAt: "2026-10-25T00:00:00+07:00",
     location: "Madiun",
     author: "Ags",
-    imageUrl: null,
+    imageUrl: "https://www.mbcindonesia.id/wp-content/uploads/2026/10/IMG-20261025-WA0043.jpg",
     sourceUrl: "https://www.mbcindonesia.id/2026/10/25/pots-money-resmi-hadir-di-madiun-perkenalkan-inovasi-keuangan-digital-berbasis-defi-dan-kecerdasan-buatan/",
     body: [
       "Madiun — Komunitas Pots Money secara resmi memperkenalkan kehadirannya di Kota Madiun, Jawa Timur, melalui kegiatan pengenalan sistem keuangan terdesentralisasi yang digelar di Meeting Room Lawu & Bromo, Grha Mangga Kota Madiun, Jl. Mangga No. 7–9, Kejuron, Kecamatan Taman, Kota Madiun.",
