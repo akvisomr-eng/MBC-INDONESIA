@@ -10,7 +10,7 @@ type Article = {
   title: string; slug: string; dek: string | null; body_markdown: string;
   author_name: string | null; category: string | null; published_at: string | null;
   seo_title: string | null; seo_description: string | null; canonical_url: string | null;
-  location?: string | null; source_url?: string | null;
+  location?: string | null; source_url?: string | null; image_url?: string | null;
 };
 
 async function getArticle(slug: string): Promise<Article | null> {
@@ -19,7 +19,7 @@ async function getArticle(slug: string): Promise<Article | null> {
     try {
       const result = await pool.query<Article>(
         `SELECT a.title, a.slug, a.dek, a.body_markdown, a.author_name,
-                c.name AS category, a.published_at, a.seo_title, a.seo_description, a.canonical_url
+                c.name AS category, a.published_at, a.seo_title, a.seo_description, a.canonical_url, a.featured_image_url AS image_url
            FROM public.newsroom_articles a
            LEFT JOIN public.newsroom_categories c ON c.id = a.category_id
           WHERE a.slug = $1 AND a.status = 'published'
@@ -47,6 +47,7 @@ async function getArticle(slug: string): Promise<Article | null> {
     seo_title: source.title,
     seo_description: source.dek,
     canonical_url: null,
+    image_url: source.imageUrl,
     location: source.location,
     source_url: source.sourceUrl
   };
@@ -75,6 +76,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <Link href="/" className="back-link">← Kembali ke beranda</Link>
         <h1>{article.title}</h1>
         {article.dek && <p className="story-dek">{article.dek}</p>}
+        {article.image_url && <figure className="story-image"><img src={article.image_url} alt={`Foto terkait: ${article.title}`} loading="eager" /><figcaption>Foto: MBC Indonesia</figcaption></figure>}
         <p className="story-meta">{article.author_name ? `Oleh ${article.author_name}` : "Redaksi MBC Indonesia"}{article.published_at ? ` · ${new Intl.DateTimeFormat("id-ID", { dateStyle: "long" }).format(new Date(article.published_at))}` : ""}</p>
         <div className="story-body">{article.body_markdown.split(/\n{2,}/).filter(Boolean).map((paragraph, i) => <p key={i}>{paragraph}</p>)}</div>
         {article.source_url && <p className="story-source">Sumber asli: <a href={article.source_url} target="_blank" rel="noopener noreferrer">Baca artikel di situs MBC Indonesia ↗</a></p>}
