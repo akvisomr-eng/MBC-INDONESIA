@@ -97,3 +97,38 @@ Suggested logical services:
 - CI passes before merge/deploy.
 - Production migration has a backup/recovery plan and post-migration verification.
 - No secrets or private user data are committed to Git.
+
+
+## Implemented application foundation (branch: feat/operational-foundation)
+
+- Next.js 16 application and responsive Indonesian-language public landing page.
+- Public article detail pages for published records only, canonical metadata, Open Graph/Twitter metadata, NewsArticle JSON-LD, sitemap, and robots policy.
+- Neon PostgreSQL health check at `GET /api/health` and published-only JSON feed at `GET /api/news`.
+- Neon Managed Auth integration on the isolated Neon preview branch; admin access is denied unless the user's email is included in `MBC_ADMIN_EMAILS`.
+- Initial CMS supports creating drafts, listing drafts, and submitting eligible drafts to editorial review. It does not publish automatically.
+- Initial AI agent registry and a budget-guarded execution endpoint. Agent execution is disabled unless `MBC_AI_AGENTS_ENABLED=true`, the provider is configured, and a daily budget/rate configuration is supplied.
+- Audit events are written for draft creation, review submission, and AI runs.
+- GitHub Actions CI runs tests, TypeScript checks, ESLint, and production build.
+
+## Local development
+
+1. Install Node.js 22 or newer and npm.
+2. Copy `.env.example` to `.env.local`.
+3. Set `DATABASE_URL` to an isolated Neon preview/test branch connection string.
+4. Set `NEON_AUTH_BASE_URL` to the Managed Auth URL for the same branch and generate `NEON_AUTH_COOKIE_SECRET` (at least 32 characters).
+5. Add trusted administrator emails to `MBC_ADMIN_EMAILS` (comma-separated). Do not set an administrator email based on guesswork.
+6. Keep `MBC_AI_AGENTS_ENABLED=false` until provider credentials, rate costs, daily budget, and usage limits are reviewed.
+7. Run `npm install`, `npm test`, `npm run typecheck`, `npm run lint`, `npm run build`, then `npm run dev`.
+
+## Main endpoints
+
+- `GET /api/health` — non-sensitive application/database status.
+- `GET /api/news` — latest published articles only.
+- `GET /api/admin/overview` — admin-only newsroom/agent status counts.
+- `GET|POST /api/admin/articles` — admin-only article listing and draft creation.
+- `POST /api/admin/articles/:id/submit-review` — move eligible drafts into editorial review; never publishes.
+- `POST /api/admin/agents/run` — admin-only provider-backed agent run, guarded by feature flag, daily run cap, configured rates, and daily budget.
+
+## Release limitations
+
+This is an implementation branch, not a declaration of production readiness. Do not connect it to production data or switch the public domain until CI is green and preview verification is complete. Editor/reporter role granularity, article editing and rejection UI, media upload workflow, CRM/finance/payroll workflows, external analytics/Search Console integration, custom production SMTP, provider-specific integration tests, rate limiting, and incident/rollback drills remain release work. Preview deployments are configured to avoid indexing.
