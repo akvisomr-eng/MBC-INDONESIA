@@ -21,10 +21,10 @@ export default function AgentsClient() {
     if (!response.ok) throw new Error(data.error || "Naskah tidak dapat dimuat.");
     const eligible = (data.articles || []).filter((item: Article) => ["draft", "in_review", "rejected"].includes(item.status));
     setArticles(eligible);
-    if (!articleId && eligible.length) setArticleId(eligible[0].id);
-  }, [articleId]);
+    setArticleId((current) => current || eligible[0]?.id || "");
+  }, []);
 
-  useEffect(() => { loadArticles().catch((e) => setError(e.message)); }, [loadArticles]);
+  useEffect(() => { void Promise.resolve().then(() => loadArticles()).catch((e) => setError(e.message)); }, [loadArticles]);
 
   async function runAgent() {
     if (!articleId) { setError("Pilih naskah yang akan dianalisis."); return; }
