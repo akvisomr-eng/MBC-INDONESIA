@@ -26,7 +26,7 @@ export default function AdminArticlesPage() {
     setArticles(data.articles || []);
   }, []);
 
-  useEffect(() => { load().catch((e) => setError(e.message)); }, [load]);
+  useEffect(() => { void Promise.resolve().then(() => load()).catch((e) => setError(e.message)); }, [load]);
 
   async function createDraft(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); setBusy(true); setError(""); setMessage("");
