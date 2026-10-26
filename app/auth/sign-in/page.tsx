@@ -27,7 +27,7 @@ export default function SignInPage() {
         return;
       }
       const nextPath = new URLSearchParams(window.location.search).get("next");
-      router.replace(nextPath?.startsWith("/") ? nextPath : "/admin");
+      router.replace(nextPath?.startsWith("/") && !nextPath.startsWith("//") ? nextPath : "/admin");
       router.refresh();
     } catch {
       setError("Layanan autentikasi belum tersedia. Periksa konfigurasi Neon Auth pada environment ini.");
