@@ -118,6 +118,8 @@ export default async function HomePage() {
         <p className="hero-caption">FAKTA / KONTEKS / PUBLIK <span>Foto liputan: MBC Indonesia</span></p>
       </section>
 
+      <AdSlot placement="homepage" />
+
       <section className="quick-access" aria-labelledby="quick-access-title">
         <div className="section-heading"><div><p className="eyebrow">JELAJAHI MBC</p><h2 id="quick-access-title">Satu ruang. Banyak perspektif.</h2></div><span className="section-rule"/></div>
         <div className="metro-tiles">
