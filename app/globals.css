@@ -126,3 +126,19 @@ h1,h2,h3,p{margin-top:0}
  .hero-caption{font-size:7px;letter-spacing:.08em}
 }
 @media(prefers-reduced-motion:reduce){.hero-photo{transition:none}}
+
+
+/* Smart-TV / remote-friendly focus states for the Metro media wall */
+.hero-media,.hero-video-card{cursor:pointer;outline-offset:3px;transition:transform .18s ease,box-shadow .18s ease}
+.hero-video-card:hover{background:#174b70}
+.hero-media:focus-visible,.hero-video-card:focus-visible{
+  outline:4px solid #ffd166;
+  outline-offset:3px;
+  z-index:3;
+  transform:scale(1.012);
+  box-shadow:0 0 0 7px rgba(255,209,102,.2);
+}
+.hero-video-kicker i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ef5b4f;margin-right:7px;box-shadow:0 0 0 4px rgba(239,91,79,.16)}
+.hero-media:focus-visible .hero-media-arrow,.hero-video-card:focus-visible .hero-video-play{background:#ffd166;color:#12395b}
+@media(hover:none){.hero-media:hover .hero-photo{transform:none}}
+@media(prefers-reduced-motion:reduce){.hero-media,.hero-video-card{transition:none}}
