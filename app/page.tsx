@@ -3,6 +3,7 @@ import { getLatestArticles, type PublicArticle } from "@/lib/db";
 import { sourceArticles } from "@/lib/source-articles";
 import AiCompanion from "@/components/ai-companion";
 import ResilientImage from "@/components/resilient-image";
+import AdSlot from "@/components/ad-slot";
 
 export const dynamic = "force-dynamic";
 
