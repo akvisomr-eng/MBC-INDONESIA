@@ -185,3 +185,20 @@ body{
   .container-topnav,.container{max-width:900px}
   main.container{padding-left:15px;padding-right:15px}
 }
+
+
+/* Reader-facing companion actions and clearly disclosed commercial placements */
+.companion-capabilities button{font:700 8px 'DM Sans',sans-serif;border:1px solid #c9dbe7;background:#e4edf4;color:#24516e;padding:7px 8px;cursor:pointer}
+.companion-capabilities button:hover,.companion-capabilities button:focus-visible{background:#d2ebf6;border-color:#168bd2}
+.companion-form button:disabled{opacity:.45;cursor:not-allowed}
+.ad-slot{margin:28px 0 48px;padding:15px;background:#edf2f6;border:1px solid #d6e1e9;color:#12395b}
+.ad-slot-meta{display:flex;justify-content:space-between;gap:12px;font-size:8px;letter-spacing:.12em;font-weight:800;color:#657789;border-bottom:1px solid #d6e1e9;padding-bottom:10px}
+.ad-slot-body{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 10px}
+.ad-slot-kicker{font-size:8px;letter-spacing:.14em;font-weight:800;color:#168bd2;margin-bottom:8px}
+.ad-slot-body h2{font:600 clamp(1.35rem,2.5vw,2rem)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.04em;margin:0 0 9px}
+.ad-slot-body p:not(.ad-slot-kicker){font-size:11px;line-height:1.7;color:#536b7d;margin:0;max-width:620px}
+.ad-slot-cta{display:inline-flex;flex-shrink:0;align-items:center;justify-content:center;padding:12px 15px;background:#12395b;color:#fff;font-size:10px;font-weight:800}
+.ad-slot-cta:hover{background:#168bd2}
+.ad-slot-disclaimer{display:block;font-size:8px;line-height:1.5;color:#657789;padding:10px 10px 0;border-top:1px solid #d6e1e9}
+.ad-slot-article{margin:32px 0}
+@media(max-width:600px){.ad-slot-body{align-items:flex-start;flex-direction:column;gap:15px;padding:18px 8px}.ad-slot-cta{width:100%}.ad-slot-meta{font-size:7px;letter-spacing:.06em}.ad-slot{margin:24px 0 35px}}
