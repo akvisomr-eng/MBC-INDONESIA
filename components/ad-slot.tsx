@@ -4,7 +4,7 @@ type Props = { placement: "homepage" | "article" | "sidebar" };
 
 const copy = {
   homepage: { label: "RUANG IKLAN MBC", title: "Jangkau pembaca MBC Indonesia", detail: "Tempat untuk kampanye brand, layanan, dan informasi bersponsor yang lolos pemeriksaan redaksi." },
-  article: { label: "IKLAN · KONTEN BERSponsor", title: "Promosikan layanan Anda kepada pembaca", detail: "Slot iklan tersedia. Materi akan ditinjau dan konten berbayar diberi label yang jelas." },
+  article: { label: "IKLAN · KONTEN BERSPONSOR", title: "Promosikan layanan Anda kepada pembaca", detail: "Slot iklan tersedia. Materi akan ditinjau dan konten berbayar diberi label yang jelas." },
   sidebar: { label: "RUANG IKLAN", title: "Pasang iklan di MBC", detail: "Tanyakan posisi, format, jadwal, dan tarif resmi kepada tim pemasaran." }
 };
 
