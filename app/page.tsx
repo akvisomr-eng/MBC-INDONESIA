@@ -51,7 +51,7 @@ export default async function HomePage() {
   const showingSourceArticles = sourceCards.length > 0;
 
   return (
-    <main id="konten">
+    <main id="konten" className="container">
       <div className="topline"><span>INDEPENDEN · AKURAT · BERTANGGUNG JAWAB</span><span>PORTAL BERITA INDONESIA <i className="status-dot" /> EDISI DIGITAL</span></div>
       <header className="masthead">
         <Link href="/" className="brand" aria-label="MBC Indonesia — Beranda">
