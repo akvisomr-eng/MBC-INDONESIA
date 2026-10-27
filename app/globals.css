@@ -142,3 +142,19 @@ h1,h2,h3,p{margin-top:0}
 .hero-media:focus-visible .hero-media-arrow,.hero-video-card:focus-visible .hero-video-play{background:#ffd166;color:#12395b}
 @media(hover:none){.hero-media:hover .hero-photo{transform:none}}
 @media(prefers-reduced-motion:reduce){.hero-media,.hero-video-card{transition:none}}
+
+
+/* MBC Indonesia masthead identity inspired by the official publication branding */
+.brand{display:flex;flex-direction:column;gap:8px;line-height:1}
+.brand-lockup{display:flex;align-items:center;gap:13px}
+.brand-emblem{position:relative;display:grid;place-items:center;flex:0 0 auto;width:58px;height:58px;background:#12395b;color:#fff;border:3px solid #ef5b4f;box-shadow:inset 0 0 0 3px #fff;font:800 29px/1 'Space Grotesk',sans-serif;letter-spacing:-.08em}
+.brand-emblem:before{content:"";position:absolute;inset:5px;border:1px solid rgba(255,255,255,.7)}
+.brand-emblem i{position:absolute;right:-5px;top:-5px;width:12px;height:12px;background:#ef5b4f;border:2px solid var(--paper);border-radius:50%}
+.brand-wording{display:flex;flex-direction:column;line-height:.82}
+.brand-mark{font-size:clamp(2.7rem,5vw,4.4rem);letter-spacing:-.105em}
+.brand-subtitle{margin-top:10px;font-size:9px;letter-spacing:.49em;font-weight:800;color:#168bd2}
+.brand-identity{font-size:7px;letter-spacing:.18em;font-weight:800;color:#657789;margin-left:71px}
+.masthead-right{max-width:370px}
+.masthead-note{font-size:clamp(.92rem,1.45vw,1.2rem);font-weight:600;color:#12395b}
+.edition-tag{display:inline-block;border-top:2px solid #ef5b4f;padding-top:8px}
+@media(max-width:600px){.brand-lockup{gap:9px}.brand-emblem{width:43px;height:43px;font-size:22px}.brand-mark{font-size:2.7rem}.brand-subtitle{font-size:8px;letter-spacing:.4em}.brand-identity{font-size:6px;margin-left:52px;letter-spacing:.1em}.masthead-right{max-width:46%}.masthead-note{font-size:.75rem;line-height:1.35}.edition-tag{font-size:6px;letter-spacing:.05em}}
