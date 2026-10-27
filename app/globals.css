@@ -158,3 +158,30 @@ h1,h2,h3,p{margin-top:0}
 .masthead-note{font-size:clamp(.92rem,1.45vw,1.2rem);font-weight:600;color:#12395b}
 .edition-tag{display:inline-block;border-top:2px solid #ef5b4f;padding-top:8px}
 @media(max-width:600px){.brand-lockup{gap:9px}.brand-emblem{width:43px;height:43px;font-size:22px}.brand-mark{font-size:2.7rem}.brand-subtitle{font-size:8px;letter-spacing:.4em}.brand-identity{font-size:6px;margin-left:52px;letter-spacing:.1em}.masthead-right{max-width:46%}.masthead-note{font-size:.75rem;line-height:1.35}.edition-tag{font-size:6px;letter-spacing:.05em}}
+
+
+/* Imported responsive container and base typography from the supplied MBC reference styles */
+body{
+  color:#323233;
+  font-family:"Open Sans","Helvetica",Arial,sans-serif;
+  font-weight:500;
+  font-size:14px;
+  line-height:1.3;
+  background-color:#eeeeee;
+  word-wrap:break-word;
+}
+.container-topnav,.container{
+  width:100%;
+  margin-right:auto;
+  margin-left:auto;
+  padding-left:15px;
+  padding-right:15px;
+}
+@media(min-width:768px){
+  .container-topnav,.container{max-width:750px}
+  main.container{padding-left:15px;padding-right:15px}
+}
+@media(min-width:992px){
+  .container-topnav,.container{max-width:900px}
+  main.container{padding-left:15px;padding-right:15px}
+}
