@@ -54,11 +54,20 @@ export default async function HomePage() {
     <main id="konten">
       <div className="topline"><span>INDEPENDEN · AKURAT · BERTANGGUNG JAWAB</span><span>PORTAL BERITA INDONESIA <i className="status-dot" /> EDISI DIGITAL</span></div>
       <header className="masthead">
-        <Link href="/" className="brand" aria-label="MBC Indonesia beranda">
-          <span className="brand-mark">MBC<span className="brand-period">.</span></span>
-          <span className="brand-subtitle">INDONESIA</span>
+        <Link href="/" className="brand" aria-label="MBC Indonesia — Beranda">
+          <span className="brand-lockup">
+            <span className="brand-emblem" aria-hidden="true"><span>M</span><i /></span>
+            <span className="brand-wording">
+              <span className="brand-mark">MBC<span className="brand-period">.</span></span>
+              <span className="brand-subtitle">INDONESIA</span>
+            </span>
+          </span>
+          <span className="brand-identity">MERDEKA BANGSA CYBERMEDIA</span>
         </Link>
-        <div className="masthead-right"><p className="masthead-note">Menyajikan fakta.<br/>Merawat kepercayaan.</p><span className="edition-tag">MEDIA · BERITA · CAKRAWALA</span></div>
+        <div className="masthead-right">
+          <p className="masthead-note">Menyampaikan fakta.<br/>Menjaga integritas.<br/>Membangun Indonesia.</p>
+          <span className="edition-tag">PORTAL BERITA DIGITAL · EDISI INDONESIA</span>
+        </div>
       </header>
       <nav className="main-nav" aria-label="Navigasi utama">
         <Link href="/">Beranda</Link>
