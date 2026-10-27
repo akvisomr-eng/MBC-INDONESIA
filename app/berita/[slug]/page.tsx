@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPool } from "@/lib/db";
 import { getSourceArticle } from "@/lib/source-articles";
+import ResilientImage from "@/components/resilient-image";
 
 export const dynamic = "force-dynamic";
 
@@ -76,7 +77,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <Link href="/" className="back-link">← Kembali ke beranda</Link>
         <h1>{article.title}</h1>
         {article.dek && <p className="story-dek">{article.dek}</p>}
-        {article.image_url && <figure className="story-image"><img src={article.image_url} alt={`Foto terkait: ${article.title}`} loading="eager" /><figcaption>Foto: MBC Indonesia</figcaption></figure>}
+        {article.image_url && <figure className="story-image"><ResilientImage src={article.image_url} alt={`Foto terkait: ${article.title}`} loading="eager" fallbackClassName="story-image-fallback" /><figcaption>Foto: MBC Indonesia</figcaption></figure>}
         <p className="story-meta">{article.author_name ? `Oleh ${article.author_name}` : "Redaksi MBC Indonesia"}{article.published_at ? ` · ${new Intl.DateTimeFormat("id-ID", { dateStyle: "long" }).format(new Date(article.published_at))}` : ""}</p>
         <div className="story-body">{article.body_markdown.split(/\n{2,}/).filter(Boolean).map((paragraph, i) => <p key={i}>{paragraph}</p>)}</div>
         {article.source_url && <p className="story-source">Sumber asli: <a href={article.source_url} target="_blank" rel="noopener noreferrer">Baca artikel di situs MBC Indonesia ↗</a></p>}
