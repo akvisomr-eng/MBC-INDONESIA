@@ -75,6 +75,10 @@ export default async function HomePage() {
         <a href="#berita-terbaru">Nasional</a><a href="#berita-terbaru">Ekonomi</a><a href="#berita-terbaru">Daerah</a><a href="#teknologi">Teknologi & Web3</a><a href="#opini">Opini</a>
         <a className="nav-companion" href="#companion">✳ AI Companion</a>
       </nav>
+      <div className="breaking-strip" aria-label="Kabar terbaru">
+        <strong><span /> KABAR TERKINI</strong>
+        <div>{displayArticles.slice(0, 3).map((article) => <Link key={article.id} href={"/berita/" + article.slug}>{article.title}</Link>)}</div>
+      </div>
 
       <section className="metro-gallery-hero" aria-label="Sorotan MBC Indonesia">
         <div className="hero-gallery-heading">
@@ -84,36 +88,17 @@ export default async function HomePage() {
           </div>
           <a className="hero-all-news" href="#berita-terbaru">Jelajahi semua berita <span aria-hidden="true">↗</span></a>
         </div>
-        <div className="hero-media-grid">
-          <a className="hero-media hero-media-main" href="/berita/pererat-silaturahmi-ormas-gbran-turut-hadiri-pelantikan-pac-progib-dpc-kediri" aria-label="Baca berita pelantikan PAC PROGIB di Kediri">
-            <ResilientImage src="https://www.mbcindonesia.id/wp-content/uploads/2026/10/IMG-20261025-WA0022.jpg" alt="Pelantikan PAC PROGIB DPC Kediri" loading="eager" className="hero-photo" />
-            <span className="hero-media-shade" />
-            <span className="hero-media-label">LIPUTAN DAERAH <i /> KEDIRI</span>
-            <span className="hero-media-title">Silaturahmi dan penguatan organisasi hingga akar rumput</span>
-            <span className="hero-media-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a className="hero-media hero-media-secondary" href="/berita/progib-jatim-dpc-kediri-resmi-lantik-pac-se-kabupaten-semangat-perkuat-keterlibatan-hingga-ke-akar-rumput" aria-label="Baca berita pelantikan PAC se-Kabupaten Kediri">
-            <ResilientImage src="https://www.mbcindonesia.id/wp-content/uploads/2026/10/IMG-20261025-WA0021.jpg" alt="Pengurus dan peserta pelantikan PAC PROGIB" loading="eager" className="hero-photo" />
-            <span className="hero-media-shade" />
-            <span className="hero-media-label">NASIONAL / DAERAH</span>
-            <span className="hero-media-title">Kepengurusan PAC resmi dilantik</span>
-            <span className="hero-media-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a className="hero-media hero-media-secondary" href="/berita/pots-money-resmi-hadir-di-madiun-perkenalkan-inovasi-keuangan-digital-berbasis-defi-dan-kecerdasan-buatan" aria-label="Baca laporan ekonomi digital dari Madiun">
-            <ResilientImage src="https://www.mbcindonesia.id/wp-content/uploads/2026/10/IMG-20261025-WA0043.jpg" alt="Kegiatan pengenalan keuangan digital di Madiun" loading="eager" className="hero-photo" />
-            <span className="hero-media-shade" />
-            <span className="hero-media-label">EKONOMI DIGITAL</span>
-            <span className="hero-media-title">Madiun dan perkembangan ekosistem digital</span>
-            <span className="hero-media-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a className="hero-video-card" href="/berita/pots-money-resmi-hadir-di-madiun-perkenalkan-inovasi-keuangan-digital-berbasis-defi-dan-kecerdasan-buatan" aria-label="Buka berita Madiun terkait liputan video dan keuangan digital">
-            <span className="hero-video-kicker"><i aria-hidden="true" /> PILIHAN MULTIMEDIA / MADIUN</span>
-            <span className="hero-video-play" aria-hidden="true">▶</span>
-            <strong>Berita bukan hanya dibaca.</strong>
-            <span className="hero-video-copy">Jelajahi laporan tentang kegiatan keuangan digital di Madiun, konteks, dan catatan verifikasi redaksi.</span>
-            <span className="hero-video-link">Buka berita terkait <span aria-hidden="true">↗</span></span>
-            <small>Kartu bergaya video · klik untuk membaca liputan, bukan pemutar video langsung</small>
-          </a>
+        <div className="headline-grid" aria-label="Empat berita pilihan">
+          {displayArticles.slice(0, 4).map((article, index) => (
+            <Link key={article.id} href={"/berita/" + article.slug} className={index === 0 ? "headline-card headline-lead" : "headline-card"}>
+              {article.featured_image_url ? <ResilientImage src={article.featured_image_url} alt="" loading={index === 0 ? "eager" : "lazy"} className="headline-photo" /> : <span className="headline-placeholder">MBC<span>.</span></span>}
+              <span className="headline-shade" />
+              <span className="headline-label">{article.category || "Berita"} <i /> {article.location || "MBC Indonesia"}</span>
+              <strong className="headline-title">{article.title}</strong>
+              <span className="headline-read">Baca berita ↗</span>
+            </Link>
+          ))}
+          {displayArticles.length === 0 && <div className="headline-empty">Sorotan berita akan tampil setelah artikel disetujui redaksi.</div>}
         </div>
         <p className="hero-caption">FAKTA / KONTEKS / PUBLIK <span>Foto liputan: MBC Indonesia</span></p>
       </section>
