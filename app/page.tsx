@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getLatestArticles, type PublicArticle } from "@/lib/db";
 import { sourceArticles } from "@/lib/source-articles";
 import AiCompanion from "@/components/ai-companion";
+import ResilientImage from "@/components/resilient-image";
 
 export const dynamic = "force-dynamic";
 
@@ -99,7 +100,7 @@ export default async function HomePage() {
           <div className="article-grid">
             {displayArticles.map((article, index) => (
               <article className={index === 0 ? "article-card article-featured" : "article-card"} key={article.id}>
-                {article.featured_image_url ? <div className="article-image"><img src={article.featured_image_url} alt="" loading="lazy"/></div> : <div className="article-image image-placeholder"><span>MBC<span className="red-dot">.</span></span></div>}
+                {article.featured_image_url ? <div className="article-image"><ResilientImage src={article.featured_image_url} alt="" loading="lazy" /></div> : <div className="article-image image-placeholder"><span>MBC<span className="red-dot">.</span></span></div>}
                 <div className="article-meta"><span>{article.category || "Berita"}</span><span>{formatDate(article.published_at)}</span>{("location" in article && article.location) && <span>{article.location}</span>}</div>
                 <h3><Link href={`/berita/${article.slug}`}>{article.title}</Link></h3>
                 {article.dek && <p>{article.dek}</p>}
