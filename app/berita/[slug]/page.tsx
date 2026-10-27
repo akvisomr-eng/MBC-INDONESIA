@@ -82,9 +82,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         {article.image_url && <figure className="story-image"><ResilientImage src={article.image_url} alt={`Foto terkait: ${article.title}`} loading="eager" fallbackClassName="story-image-fallback" /><figcaption>Foto: MBC Indonesia</figcaption></figure>}
         <p className="story-meta">{article.author_name ? `Oleh ${article.author_name}` : "Redaksi MBC Indonesia"}{article.published_at ? ` · ${new Intl.DateTimeFormat("id-ID", { dateStyle: "long" }).format(new Date(article.published_at))}` : ""}</p>
         <div className="story-body">{article.body_markdown.split(/\n{2,}/).filter(Boolean).map((paragraph, i) => <p key={i}>{paragraph}</p>)}</div>
+        <AdSlot placement="article" />
         {article.source_url && <p className="story-source">Sumber asli: <a href={article.source_url} target="_blank" rel="noopener noreferrer">Baca artikel di situs MBC Indonesia ↗</a></p>}
         <p className="story-disclaimer">Naskah ini bersumber dari publikasi MBC Indonesia. Artikel sumber tetap tersedia melalui tautan referensi di atas.</p>
       </article>
+      <AiCompanion article={{ title: article.title, dek: article.dek, body: article.body_markdown, sourceUrl: article.source_url, category: article.category }} />
     </main>
   );
 }
