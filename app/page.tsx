@@ -138,6 +138,7 @@ export default async function HomePage() {
         {displayArticles.length === 0 ? (
           <div className="empty-state"><h3>Ruang redaksi sedang bersiap</h3><p>Berita akan tampil di sini setelah naskah ditinjau, disetujui editor, dan diterbitkan. MBC tidak menampilkan berita contoh atau data yang dibuat-buat.</p>{!databaseAvailable && <p className="setup-note">Konfigurasi database belum tersedia pada environment aplikasi ini.</p>}</div>
         ) : (
+          <div className="news-layout">
           <div className="article-grid">
             {displayArticles.map((article, index) => (
               <article className={index === 0 ? "article-card article-featured" : "article-card"} key={article.id}>
@@ -149,6 +150,12 @@ export default async function HomePage() {
                 <p className="article-actions"><Link className="text-link" href={`/berita/${article.slug}`}>Baca selengkapnya <span aria-hidden="true">↗</span></Link>{"sourceUrl" in article && article.sourceUrl && <> · <a className="source-link" href={article.sourceUrl} target="_blank" rel="noopener noreferrer">Sumber asli</a></>}</p>
               </article>
             ))}
+          </div>
+          <aside className="news-ad-column" aria-label="Kolom iklan dan mitra">
+            <p className="news-ad-heading">IKLAN & MITRA</p>
+            <AdSlot placement="sidebar" />
+            <div className="news-ad-note"><strong>Ingin menjangkau pembaca MBC?</strong><p>Kolom ini disediakan untuk iklan display, kampanye mitra, dan konten bersponsor yang telah melalui pemeriksaan.</p><a href="https://wa.me/6282137369607?text=Halo%20MBC%20Indonesia%2C%20saya%20ingin%20menanyakan%20slot%20iklan.">Hubungi pemasaran ↗</a></div>
+          </aside>
           </div>
         )}
       </section>
