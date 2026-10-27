@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { getPool } from "@/lib/db";
 import { getSourceArticle } from "@/lib/source-articles";
 import ResilientImage from "@/components/resilient-image";
+import AiCompanion from "@/components/ai-companion";
+import AdSlot from "@/components/ad-slot";
 
 export const dynamic = "force-dynamic";
 
