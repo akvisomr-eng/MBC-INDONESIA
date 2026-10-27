@@ -140,6 +140,10 @@ export default async function HomePage() {
             <p className="news-ad-heading">IKLAN & MITRA</p>
             <AdSlot placement="sidebar" />
             <div className="news-ad-note"><strong>Ingin menjangkau pembaca MBC?</strong><p>Kolom ini disediakan untuk iklan display, kampanye mitra, dan konten bersponsor yang telah melalui pemeriksaan.</p><a href="https://wa.me/6282137369607?text=Halo%20MBC%20Indonesia%2C%20saya%20ingin%20menanyakan%20slot%20iklan.">Hubungi pemasaran ↗</a></div>
+            <section className="popular-news" aria-labelledby="popular-news-title">
+              <h3 id="popular-news-title">TERPOPULER</h3>
+              <ol>{displayArticles.slice(0, 5).map((article, index) => <li key={article.id}><span>{String(index + 1).padStart(2, "0")}</span><Link href={"/berita/" + article.slug}>{article.title}</Link></li>)}</ol>
+            </section>
           </aside>
           </div>
         )}
