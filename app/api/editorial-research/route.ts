@@ -8,7 +8,7 @@ type SearchItem = { title?: string; url?: string; content?: string; score?: numb
 const searchPlans = [
   { agent: "official_sources", query: "official government statements primary data public notices Indonesia latest" },
   { agent: "independent_coverage", query: "independent news reporting Indonesia corroboration latest" },
-  { agent: "open_data_research", query: "open data research reports public datasets Indonesia latest" }
+  { agent: "open_license_research", query: "Creative Commons CC BY public domain open access datasets government reports Wikimedia Commons media Indonesia" }
 ];
 
 export async function POST(request: Request) {
