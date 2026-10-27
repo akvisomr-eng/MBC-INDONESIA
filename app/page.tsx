@@ -66,17 +66,46 @@ export default async function HomePage() {
         <a className="nav-companion" href="#companion">✳ AI Companion</a>
       </nav>
 
-      <section className="metro-intro">
-        <div className="metro-intro-copy">
-          <p className="eyebrow"><span className="eyebrow-square" /> MBC INDONESIA / RUANG INFORMASI PUBLIK</p>
-          <h1>Berita yang bergerak.<br/><em>Perspektif yang terhubung.</em></h1>
-          <p className="hero-description">Informasi yang kontekstual, proses editorial yang bertanggung jawab, dan teknologi untuk membantu publik memahami cerita di balik berita.</p>
-          <a className="text-link" href="#berita-terbaru">Jelajahi berita terbaru <span aria-hidden="true">↗</span></a>
+      <section className="metro-gallery-hero" aria-label="Sorotan MBC Indonesia">
+        <div className="hero-gallery-heading">
+          <div>
+            <p className="eyebrow"><span className="eyebrow-square" /> MBC INDONESIA / SOROTAN REDAKSI</p>
+            <h1>Berita yang bergerak.<br/><em>Perspektif yang terhubung.</em></h1>
+          </div>
+          <a className="hero-all-news" href="#berita-terbaru">Jelajahi semua berita <span aria-hidden="true">↗</span></a>
         </div>
-        <div className="metro-art" aria-label="Identitas MBC Indonesia">
-          <div className="metro-art-grid"><span>M</span><span>BC</span><span className="art-small">INDONESIA</span><span className="art-signal">● LIVE<br/>NEWSROOM</span></div>
-          <div className="metro-art-caption">FAKTA / KONTEKS / PUBLIK</div>
+        <div className="hero-media-grid">
+          <a className="hero-media hero-media-main" href="/berita/pererat-silaturahmi-ormas-gbran-turut-hadiri-pelantikan-pac-progib-dpc-kediri" aria-label="Baca berita pelantikan PAC PROGIB di Kediri">
+            <ResilientImage src="https://www.mbcindonesia.id/wp-content/uploads/2026/10/IMG-20261025-WA0022.jpg" alt="Pelantikan PAC PROGIB DPC Kediri" loading="eager" className="hero-photo" />
+            <span className="hero-media-shade" />
+            <span className="hero-media-label">LIPUTAN DAERAH <i /> KEDIRI</span>
+            <span className="hero-media-title">Silaturahmi dan penguatan organisasi hingga akar rumput</span>
+            <span className="hero-media-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a className="hero-media hero-media-secondary" href="/berita/progib-jatim-dpc-kediri-resmi-lantik-pac-se-kabupaten-semangat-perkuat-keterlibatan-hingga-ke-akar-rumput" aria-label="Baca berita pelantikan PAC se-Kabupaten Kediri">
+            <ResilientImage src="https://www.mbcindonesia.id/wp-content/uploads/2026/10/IMG-20261025-WA0021.jpg" alt="Pengurus dan peserta pelantikan PAC PROGIB" loading="eager" className="hero-photo" />
+            <span className="hero-media-shade" />
+            <span className="hero-media-label">NASIONAL / DAERAH</span>
+            <span className="hero-media-title">Kepengurusan PAC resmi dilantik</span>
+            <span className="hero-media-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a className="hero-media hero-media-secondary" href="/berita/pots-money-resmi-hadir-di-madiun-perkenalkan-inovasi-keuangan-digital-berbasis-defi-dan-kecerdasan-buatan" aria-label="Baca laporan ekonomi digital dari Madiun">
+            <ResilientImage src="https://www.mbcindonesia.id/wp-content/uploads/2026/10/IMG-20261025-WA0043.jpg" alt="Kegiatan pengenalan keuangan digital di Madiun" loading="eager" className="hero-photo" />
+            <span className="hero-media-shade" />
+            <span className="hero-media-label">EKONOMI DIGITAL</span>
+            <span className="hero-media-title">Madiun dan perkembangan ekosistem digital</span>
+            <span className="hero-media-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a className="hero-video-card" href="https://www.youtube.com/@setyadharma" target="_blank" rel="noopener noreferrer" aria-label="Buka kanal video YouTube eksternal @setyadharma">
+            <span className="hero-video-kicker">MBC / VIDEO & MULTIMEDIA</span>
+            <span className="hero-video-play" aria-hidden="true">▶</span>
+            <strong>Berita bukan hanya dibaca.</strong>
+            <span className="hero-video-copy">Lanjutkan ke kanal video eksternal yang disebut dalam liputan Madiun.</span>
+            <span className="hero-video-link">Buka kanal video <span aria-hidden="true">↗</span></span>
+            <small>Video eksternal · bukan pemutar video MBC tersemat</small>
+          </a>
         </div>
+        <p className="hero-caption">FAKTA / KONTEKS / PUBLIK <span>Foto liputan: MBC Indonesia</span></p>
       </section>
 
       <section className="quick-access" aria-labelledby="quick-access-title">
