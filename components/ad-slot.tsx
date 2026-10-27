@@ -14,7 +14,7 @@ export default function AdSlot({ placement }: Props) {
     <aside className={`ad-slot ad-slot-${placement}`} aria-label="Slot iklan">
       <div className="ad-slot-meta"><span>{item.label}</span><span>BERSIFAT PROMOSI</span></div>
       <div className="ad-slot-body"><div><p className="ad-slot-kicker">MITRA KOMERSIAL MBC INDONESIA</p><h2>{item.title}</h2><p>{item.detail}</p></div>
-        <Link href="mailto:redaksi@mbcindonesia.id?subject=Permintaan%20Informasi%20Iklan%20MBC%20Indonesia" className="ad-slot-cta">Tanyakan slot iklan ↗</Link>
+        <Link href="https://wa.me/6282137369607?text=Halo%20MBC%20Indonesia%2C%20saya%20ingin%20menanyakan%20slot%20iklan." className="ad-slot-cta">Tanyakan slot iklan ↗</Link>
       </div>
       <small className="ad-slot-disclaimer">Slot promosi MBC. Bukan berita redaksional atau dukungan terhadap produk.</small>
     </aside>
