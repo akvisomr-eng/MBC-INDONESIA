@@ -96,13 +96,13 @@ export default async function HomePage() {
             <span className="hero-media-title">Madiun dan perkembangan ekosistem digital</span>
             <span className="hero-media-arrow" aria-hidden="true">↗</span>
           </a>
-          <a className="hero-video-card" href="https://www.youtube.com/@setyadharma" target="_blank" rel="noopener noreferrer" aria-label="Buka kanal video YouTube eksternal @setyadharma">
-            <span className="hero-video-kicker">MBC / VIDEO & MULTIMEDIA</span>
+          <a className="hero-video-card" href="/berita/pots-money-resmi-hadir-di-madiun-perkenalkan-inovasi-keuangan-digital-berbasis-defi-dan-kecerdasan-buatan" aria-label="Buka berita Madiun terkait liputan video dan keuangan digital">
+            <span className="hero-video-kicker"><i aria-hidden="true" /> PILIHAN MULTIMEDIA / MADIUN</span>
             <span className="hero-video-play" aria-hidden="true">▶</span>
             <strong>Berita bukan hanya dibaca.</strong>
-            <span className="hero-video-copy">Lanjutkan ke kanal video eksternal yang disebut dalam liputan Madiun.</span>
-            <span className="hero-video-link">Buka kanal video <span aria-hidden="true">↗</span></span>
-            <small>Video eksternal · bukan pemutar video MBC tersemat</small>
+            <span className="hero-video-copy">Jelajahi laporan tentang kegiatan keuangan digital di Madiun, konteks, dan catatan verifikasi redaksi.</span>
+            <span className="hero-video-link">Buka berita terkait <span aria-hidden="true">↗</span></span>
+            <small>Kartu bergaya video · klik untuk membaca liputan, bukan pemutar video langsung</small>
           </a>
         </div>
         <p className="hero-caption">FAKTA / KONTEKS / PUBLIK <span>Foto liputan: MBC Indonesia</span></p>
